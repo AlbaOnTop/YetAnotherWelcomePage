@@ -1,0 +1,274 @@
+:root {
+    --color: #FCECDD; /* Main accent color */
+    --color2: #FCECDD;
+    --color3: #FCECDD;
+    --color4: #FCECDD;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color2);
+    color: var(--color3);
+    font-size: 25px;
+    overflow: hidden; /* Prevents scrolling */
+}
+.headerbar{ 
+    margin-top: 0;
+    padding: 8px 24px 4px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    position: relative;
+}
+.welcome h1 {
+    margin: 0.2em 0;
+    font-size: 80px;
+    }
+button { 
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+}
+#settings-btn {
+    padding: 0;
+    margin: 0;
+}
+#settings {
+    color: var(--color);
+    font-size: 35px;
+    transition: color 0.2s;
+}
+#settings-btn:hover #settings {
+    color: black;
+}
+#close-settings-btn {
+    background: none;
+    border: none;
+    color: var(--color);
+    font-size: 35px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+#close-settings-btn:hover {
+    color: black;
+}
+#search-icon:hover {
+    color: var(--color);
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--color4);
+    border-radius: 25px;
+    padding: 5px 10px;
+    width: 100%;
+
+    height: 70px;
+    box-sizing: border-box;
+    margin: 0; /* niente spazio sopra */
+    margin-top: 24px; /* o quanto spazio vuoi */
+    margin-right: 0;  /* elimina eventuale margin-right */
+}
+.search-bar input {
+    border: none;
+    border: transparent;
+    background: transparent;
+    color: var(--color3);
+    font-size: 20px; 
+    width: 100%;
+    padding: 5px 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.search-bar input:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+#search-icon {
+    position: relative;
+    background: none;
+    border: none;
+    color: var(--color3);
+    font-size: 22px;
+    margin-left: 8px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;   /* or the height you want */
+    width: 40px;    /* or the width you want */
+}
+
+#search-icon::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 24px;
+    background: #bfa77a; /* choose a color that fits your theme */
+    opacity: 0.7;
+}
+.search-separator {
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    background: var(--color2);
+    margin: 0 10px;
+    opacity: 0.7;
+}
+.vertical-separator {
+    width: 2px;
+    background: #bfa77a;
+    opacity: 0.7;
+    align-self: stretch;
+    margin: 0 0 0 8px; /* solo margin-left per lo spazio dalla search */
+    height: auto; /* usa tutta l'altezza del contenitore */
+}
+.content {
+    display: flex;
+    align-items: stretch; 
+    padding: 0;
+    margin: 0;
+    min-height: calc(100vh - 70px);
+    width: 100%;
+}
+
+.left-side {
+    flex: 2.5 1 0%; /* slightly larger to balance */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-separator {
+    width: 2px;
+    background: #bfa77a;
+    opacity: 0.7;
+    align-self: stretch;
+    margin: 0 0 0 8px; /* solo margin-left per lo spazio dalla search */
+    height: auto; /* usa tutta l'altezza del contenitore */
+}
+
+.right-side {
+    flex: 1.5 1 0%; /* slightly smaller than before */
+    min-width: 0;
+    /* puoi aggiungere padding o altro qui */
+}
+
+#settingMenu {
+    background: color-mix(in srgb, var(--color2) 40%, black);
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    width: 40vw;
+    height: 100vh;
+    top: 0;
+
+}
+.settingsHead{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-bottom: 0px;
+    }
+#settingsOverlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+.settingsHead h2 {
+    color: var(--color);
+    font-size: 75px;
+    margin: 0;
+}
+.settingsHead {
+    padding-top: 35px;
+}
+
+.settingsContent {
+    padding-left: 20px;
+}
+
+#search-engine-select{
+    background-color: var(--color4);
+    outline: none;
+    border: none;
+    padding: 1px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+#theme-select{
+    background-color: var(--color4);
+    outline: none;
+    border: none;
+    padding: 1px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.news-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding: 10px;
+    gap: 18px;
+    background: #fff2;
+}
+
+.news-text {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.news-text strong {
+    font-size: 1em;      /* smaller title */
+    display: block;
+    margin-bottom: 0.1em;
+}
+
+.news-desc {
+    font-size: 0.8em;
+    color: #535353; /* gray description */
+}
+
+.news-img {
+    flex: 0 0 170px;     /* bigger image box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 200px;
+    max-height: 170px;
+    background: #fff;
+}
+
+.news-img img {
+    max-width: 100%;
+    max-height: 160px;   /* bigger image */
+    object-fit: contain;
+    display: block;
+}
+.news-text a {
+    color: var(--color3);
+    text-decoration: none;
+}
+.news-text a:visited {
+    color: var(--color3);
+}
+.news-text a:hover {
+    color: var(--color);
+    text-decoration: underline;
+}

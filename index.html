@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/0b80f3e5e1.js" cr`ossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="settingMenu" id="settingMenu">
+        <div class="settingsHead">
+            <h2>Settings</h2>
+            <button id="close-settings-btn" style="color: var(--color);"><i class="fa-solid fa-xmark" onclick="toggleSettings()"></i></button>
+        </div>
+        <div class="settingsContent">
+            <h1>theme:</h1>
+            <div class="theme-chooser">
+                <select id="theme-select">
+                    <option value="light">theme 1</option>
+                    <option value="dark">theme 2</option>
+                    <option value="system">theme 3</option>
+                </select>
+            </div>
+            <h1>Search Engine:</h1>
+            <div class="search-engine-chooser">
+                <select id="search-engine-select">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="duckduckgo">DuckDuckGo</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="headerbar"> 
+        <div class="welcome">
+            <h1>Welcome to your <span style="color: var(--color);">browser</span></h1>
+        </div>
+        <button id="settings-btn"><i class="fa-solid fa-screwdriver-wrench" id="settings" onclick="toggleSettings()"></i></button>
+    </div>
+    <hr style="color: var(--color); border: 1px solid;">
+    <div class="content">
+        <div class="left-side">
+            <form id="search-form">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search" required />
+                    <button type="submit" id="search-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </form>
+            <!-- altri contenuti della parte sinistra -->
+        </div>
+        <div class="vertical-separator"></div>
+        <div class="right-side">
+            <h1>News</h1>
+            <div class="news-item">
+                <ul id="news-list"></ul>
+                <script>
+                    fetch("https://corsproxy.io/?http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml")
+                    .then(response => response.text())
+                    .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                    .then(data => {
+                        const items = data.querySelectorAll("item");
+                        const newsList = document.getElementById("news-list");
+                        for (let i = 0; i < 5; i++) {
+                            const item = items[i];
+                            const title = item.querySelector("title").textContent;
+                            const link = item.querySelector("link").textContent;
+                            const description = item.querySelector("description").textContent;
+                            let imgUrl = "";
+                            const media = item.getElementsByTagName("media:thumbnail")[0] || item.getElementsByTagName("media:content")[0];
+                            if (media && media.getAttribute("url")) {
+                                imgUrl = media.getAttribute("url");
+                            }
+                            const li = document.createElement("li");
+                            li.className = "news-flex";
+                            li.innerHTML = `
+                                <div class="news-text">
+                                    <a href="${link}" target="_blank"><strong>${title}</strong></a>
+                                    <div class="news-desc">${description.replace(/<img[^>]*>/g, "")}</div>
+                                </div>
+                                ${imgUrl ? `<div class="news-img"><a href="${link}" target="_blank"><img src="${imgUrl}" alt="news image"></a></div>` : ""}
+                            `;
+                            newsList.appendChild(li);
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="footer" style="margin-top: 90%;">
+        <p>Made with <i class="fa-solid fa-heart" style="color: red;"></i> by <a href="https://github.com/AlbaOnTop">Your Name</a></p>  
+    </div>
+    <div id="settingsOverlay"></div>
+</body>
+</html>
