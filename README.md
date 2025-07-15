@@ -23,12 +23,3 @@ Welcome to **YAWP** – a customizable welcome page with theme switching, built-
 
 YAWP was created to be a clean, practical, and visually appealing homepage replacement – fully static and ready to use out of the box.
 
-## 🙌 Credit Me
-
-If you use this project in a larger one, redistribute or fork it publicly, **please give proper credit**:
-
-```markdown
-Based on [YAWP](https://github.com/AlbaOnTop/yawp) by [AlbaOnTop](https://github.com/AlbaOnTop)
-```
-
-A simple link in the description, documentation, or page footer is enough. It means a lot!
