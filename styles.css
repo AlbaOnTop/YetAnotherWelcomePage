@@ -45,15 +45,17 @@ button {
     color: black;
 }
 #close-settings-btn {
+    padding-right: 2vw;
     background: none;
     border: none;
     color: var(--color);
-    font-size: 35px;
+    font-size: 50px;
     cursor: pointer;
     transition: color 0.2s;
 }
 #close-settings-btn:hover {
-    color: black;
+    color: rgb(255, 0, 0);
+    
 }
 #search-icon:hover {
     color: var(--color);
