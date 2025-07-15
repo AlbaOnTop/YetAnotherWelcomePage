@@ -13,26 +13,11 @@ Welcome to **YAWP** – a customizable welcome page with theme switching, built-
 
 ## 🚀 Getting Started
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/yawp.git
-   cd yawp
-   ```
-
-2. Open `index.html` in your browser:
-
-   - macOS:
-     ```bash
-     open index.html
-     ```
-   - Linux:
-     ```bash
-     xdg-open index.html
-     ```
-   - Windows:
-     ```bash
-     start index.html
-     ```
+1. Open your favourite browser
+2. Go on settings
+3. Search for welcome page/landing page/home page
+4. set this url : https://albaontop.github.io/YetAnotherWelcomePage/
+5. enjoy!
 
 ## 💡 Why YAWP?
 
