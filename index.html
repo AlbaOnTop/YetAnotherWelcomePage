@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/0b80f3e5e1.js" cr`ossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0b80f3e5e1.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </head>
 <body>
@@ -50,14 +50,14 @@
                     </button>
                 </div>
             </form>
-            <!-- altri contenuti della parte sinistra -->
+            <!-- here to continue content con the sx part -->
         </div>
         <div class="vertical-separator"></div>
         <div class="right-side">
             <h1>News</h1>
             <div class="news-item">
                 <ul id="news-list"></ul>
-                <script>
+                <script> //needed to get the rss feed =)
                     fetch("https://corsproxy.io/?http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml")
                     .then(response => response.text())
                     .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
